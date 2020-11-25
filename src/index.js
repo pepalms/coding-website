@@ -8,6 +8,7 @@ ReactDOM.render(
     <App />
     <div>
       <span>John's div</span>
+      <span>Harry's div</span>
     </div>
   </React.StrictMode>,
   document.getElementById("root")
