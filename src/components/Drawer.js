@@ -12,7 +12,8 @@ import Drawer from "@material-ui/core/Drawer";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
+import Work from "@material-ui/icons/Work";
+import Computer from "@material-ui/icons/Computer";
 
 const drawerWidth = 240;
 
@@ -63,6 +64,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const topicArray = [
+  { title: "K3MG specifics", Icon: Work },
+  { title: "Technical Skills", Icon: Computer },
+];
+
 export default function NavDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
@@ -92,12 +98,12 @@ export default function NavDrawer(props) {
       </div>
       <Divider />
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
+        {topicArray.map((item, index) => (
+          <ListItem button key={item}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <item.Icon />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={item.title} />
           </ListItem>
         ))}
       </List>
