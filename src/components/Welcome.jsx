@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { Typography } from "@material-ui/core";
 
@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Welcome(props) {
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <div
