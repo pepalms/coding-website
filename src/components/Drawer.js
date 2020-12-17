@@ -10,22 +10,19 @@ import Drawer from "@material-ui/core/Drawer";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
-import Work from "@material-ui/icons/Work";
-import Computer from "@material-ui/icons/Computer";
-import { Typography } from "@material-ui/core";
-import { GitHub } from "@material-ui/icons";
 import {
   FaBookOpen,
-  FaCode,
+  FaFlask,
   FaGithub,
+  FaHome,
   FaHtml5,
   FaJava,
   FaJira,
-  FaPaintBrush,
+  FaPencilAlt,
   FaReact,
   FaRunning,
 } from "react-icons/fa";
-import { GrTest } from "react-icons/gr";
+import { NavLink, useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -74,25 +71,36 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-  drawerHeaders: {},
+  linkLook: {
+    textDecoration: "none",
+    color: "inherit",
+  },
+  iconColor: {
+    color: theme.palette.secondary.main,
+    "&:hover:"
+  },
+  iconColorActive: {
+    color: "rgba(220, 220, 220)",
+  },
 }));
 
 const topicArray = [
-  { title: "HTML & CSS", Icon: FaHtml5 },
-  { title: "Javascript", Icon: FaJava },
-  { title: "React", Icon: FaReact },
-  { title: "Material UI", Icon: FaPaintBrush },
-  { title: "Cypress", Icon: FaCode },
-
-  { title: "Agile Working", Icon: FaRunning },
-  { title: "GitHub", Icon: FaGithub },
-  { title: "Jira", Icon: FaJira },
-  { title: "Learning resources", Icon: FaBookOpen },
+  { title: "Welcome", Icon: FaHome, link: "/coding-website" },
+  { title: "HTML & CSS", Icon: FaHtml5, link: "/HTML" },
+  { title: "Javascript", Icon: FaJava, link: "/JavaScript" },
+  { title: "React", Icon: FaReact, link: "/React" },
+  { title: "Material UI", Icon: FaPencilAlt, link: "/MaterialUI" },
+  { title: "Cypress", Icon: FaFlask, link: "/Cypress" },
+  { title: "Agile Working", Icon: FaRunning, link: "/Agile" },
+  { title: "GitHub", Icon: FaGithub, link: "/GitHub" },
+  { title: "Jira", Icon: FaJira, link: "/Jira" },
+  { title: "Learning resources", Icon: FaBookOpen, link: "/Learning" },
 ];
 
 export default function NavDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
+  const pathName = useLocation();
 
   return (
     <Drawer
@@ -120,23 +128,45 @@ export default function NavDrawer(props) {
       <Divider />
       <List>
         {topicArray.slice(0, 4).map((item, index) => (
-          <ListItem button key={item}>
-            <ListItemIcon>
-              <item.Icon size={24} />
-            </ListItemIcon>
-            <ListItemText primary={item.title} />
-          </ListItem>
+          <NavLink to={item.link} className={classes.linkLook}>
+            <ListItem
+              button
+              key={item}
+              disabled={pathName.pathname === item.link ? true : false}
+            >
+              <ListItemIcon>
+                <item.Icon
+                  size={24}
+                  className={clsx(classes.iconColor, {
+                    [classes.iconColorActive]: pathName.pathname === item.link,
+                  })}
+                />
+              </ListItemIcon>
+              <ListItemText primary={item.title} />
+            </ListItem>
+          </NavLink>
         ))}
       </List>
       <Divider />
       <List>
         {topicArray.slice(4, 8).map((item, index) => (
-          <ListItem button key={item}>
-            <ListItemIcon>
-              <item.Icon size={24} />
-            </ListItemIcon>
-            <ListItemText primary={item.title} />
-          </ListItem>
+          <NavLink to={item.link} className={classes.linkLook}>
+            <ListItem
+              button
+              key={item}
+              disabled={pathName.pathname === item.link ? true : false}
+            >
+              <ListItemIcon>
+                <item.Icon
+                  size={24}
+                  className={clsx(classes.iconColor, {
+                    [classes.iconColorActive]: pathName.pathname === item.link,
+                  })}
+                />
+              </ListItemIcon>
+              <ListItemText primary={item.title} />
+            </ListItem>
+          </NavLink>
         ))}
       </List>
     </Drawer>

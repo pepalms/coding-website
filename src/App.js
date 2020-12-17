@@ -29,7 +29,7 @@ export default function App() {
         closeDrawer={handleDrawerClose}
       />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/coding-website">
           <Welcome isDrawerOpen={open} />
         </Route>
         <Route path="/tables">
