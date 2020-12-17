@@ -4,8 +4,6 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import Drawer from "@material-ui/core/Drawer";
@@ -14,6 +12,20 @@ import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
 import Work from "@material-ui/icons/Work";
 import Computer from "@material-ui/icons/Computer";
+import { Typography } from "@material-ui/core";
+import { GitHub } from "@material-ui/icons";
+import {
+  FaBookOpen,
+  FaCode,
+  FaGithub,
+  FaHtml5,
+  FaJava,
+  FaJira,
+  FaPaintBrush,
+  FaReact,
+  FaRunning,
+} from "react-icons/fa";
+import { GrTest } from "react-icons/gr";
 
 const drawerWidth = 240;
 
@@ -62,11 +74,20 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  drawerHeaders: {},
 }));
 
 const topicArray = [
-  { title: "K3MG specifics", Icon: Work },
-  { title: "Technical Skills", Icon: Computer },
+  { title: "HTML & CSS", Icon: FaHtml5 },
+  { title: "Javascript", Icon: FaJava },
+  { title: "React", Icon: FaReact },
+  { title: "Material UI", Icon: FaPaintBrush },
+  { title: "Cypress", Icon: FaCode },
+
+  { title: "Agile Working", Icon: FaRunning },
+  { title: "GitHub", Icon: FaGithub },
+  { title: "Jira", Icon: FaJira },
+  { title: "Learning resources", Icon: FaBookOpen },
 ];
 
 export default function NavDrawer(props) {
@@ -98,10 +119,10 @@ export default function NavDrawer(props) {
       </div>
       <Divider />
       <List>
-        {topicArray.map((item, index) => (
+        {topicArray.slice(0, 4).map((item, index) => (
           <ListItem button key={item}>
             <ListItemIcon>
-              <item.Icon />
+              <item.Icon size={24} />
             </ListItemIcon>
             <ListItemText primary={item.title} />
           </ListItem>
@@ -109,12 +130,12 @@ export default function NavDrawer(props) {
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
+        {topicArray.slice(4, 8).map((item, index) => (
+          <ListItem button key={item}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <item.Icon size={24} />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={item.title} />
           </ListItem>
         ))}
       </List>
