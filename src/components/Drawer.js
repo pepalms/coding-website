@@ -76,11 +76,15 @@ const useStyles = makeStyles((theme) => ({
     color: "inherit",
   },
   iconColor: {
-    color: theme.palette.secondary.main,
-    "&:hover:"
+    color: theme.palette.primary.main,
   },
   iconColorActive: {
     color: "rgba(220, 220, 220)",
+  },
+  listItems: {
+    "&:hover $iconColor": {
+      fill: theme.palette.secondary.main,
+    },
   },
 }));
 
@@ -133,6 +137,7 @@ export default function NavDrawer(props) {
               button
               key={item}
               disabled={pathName.pathname === item.link ? true : false}
+              className={classes.listItems}
             >
               <ListItemIcon>
                 <item.Icon
@@ -155,6 +160,7 @@ export default function NavDrawer(props) {
               button
               key={item}
               disabled={pathName.pathname === item.link ? true : false}
+              className={classes.listItems}
             >
               <ListItemIcon>
                 <item.Icon
