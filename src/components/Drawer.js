@@ -22,6 +22,7 @@ import {
   FaReact,
   FaRunning,
 } from "react-icons/fa";
+import { DiJavascript1 } from "react-icons/di";
 import { NavLink, useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -78,8 +79,8 @@ const useStyles = makeStyles((theme) => ({
   iconColor: {
     color: theme.palette.primary.main,
   },
-  iconColorActive: {
-    color: "rgba(220, 220, 220)",
+  iconActive: {
+    "& $iconColor": { fill: theme.palette.secondary.main },
   },
   listItems: {
     "&:hover $iconColor": {
@@ -91,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
 const topicArray = [
   { title: "Welcome", Icon: FaHome, link: "/coding-website" },
   { title: "HTML & CSS", Icon: FaHtml5, link: "/HTML" },
-  { title: "Javascript", Icon: FaJava, link: "/JavaScript" },
+  { title: "Javascript", Icon: DiJavascript1, link: "/JavaScript" },
   { title: "React", Icon: FaReact, link: "/React" },
   { title: "Material UI", Icon: FaPencilAlt, link: "/MaterialUI" },
   { title: "Cypress", Icon: FaFlask, link: "/Cypress" },
@@ -132,7 +133,11 @@ export default function NavDrawer(props) {
       <Divider />
       <List>
         {topicArray.slice(0, 4).map((item, index) => (
-          <NavLink to={item.link} className={classes.linkLook}>
+          <NavLink
+            to={item.link}
+            className={classes.linkLook}
+            activeClassName={classes.iconActive}
+          >
             <ListItem
               button
               key={item}
@@ -140,12 +145,7 @@ export default function NavDrawer(props) {
               className={classes.listItems}
             >
               <ListItemIcon>
-                <item.Icon
-                  size={24}
-                  className={clsx(classes.iconColor, {
-                    [classes.iconColorActive]: pathName.pathname === item.link,
-                  })}
-                />
+                <item.Icon size={24} className={clsx(classes.iconColor)} />
               </ListItemIcon>
               <ListItemText primary={item.title} />
             </ListItem>
@@ -155,7 +155,11 @@ export default function NavDrawer(props) {
       <Divider />
       <List>
         {topicArray.slice(4, 8).map((item, index) => (
-          <NavLink to={item.link} className={classes.linkLook}>
+          <NavLink
+            to={item.link}
+            className={classes.linkLook}
+            activeClassName={classes.iconActive}
+          >
             <ListItem
               button
               key={item}
@@ -163,12 +167,7 @@ export default function NavDrawer(props) {
               className={classes.listItems}
             >
               <ListItemIcon>
-                <item.Icon
-                  size={24}
-                  className={clsx(classes.iconColor, {
-                    [classes.iconColorActive]: pathName.pathname === item.link,
-                  })}
-                />
+                <item.Icon size={24} className={clsx(classes.iconColor)} />
               </ListItemIcon>
               <ListItemText primary={item.title} />
             </ListItem>

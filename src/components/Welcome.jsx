@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
-import { Typography } from "@material-ui/core";
+import { Grid, Paper, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   toolBar: {
@@ -26,6 +26,12 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 240,
   },
+  welcomeContainer: {
+    paddingTop: "2rem",
+  },
+  hide: {
+    display: "none",
+  },
 }));
 
 export default function Welcome(props) {
@@ -38,8 +44,18 @@ export default function Welcome(props) {
       })}
     >
       <div className={classes.toolBar} />
-
-      <Typography>Does this move</Typography>
+      <Grid
+        container
+        justify="center"
+        xs={12}
+        className={classes.welcomeContainer}
+      >
+        <Grid item md={5} align="center">
+          <Paper>
+            <Typography variant="h1"> Learning is good</Typography>
+          </Paper>
+        </Grid>
+      </Grid>
     </div>
   );
 }
