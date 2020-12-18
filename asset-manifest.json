@@ -1,20 +1,22 @@
 {
   "files": {
     "main.css": "/coding-website/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/coding-website/static/js/main.73a914b6.chunk.js",
-    "main.js.map": "/coding-website/static/js/main.73a914b6.chunk.js.map",
+    "main.js": "/coding-website/static/js/main.34c5cc3e.chunk.js",
+    "main.js.map": "/coding-website/static/js/main.34c5cc3e.chunk.js.map",
     "runtime-main.js": "/coding-website/static/js/runtime-main.4df7c388.js",
     "runtime-main.js.map": "/coding-website/static/js/runtime-main.4df7c388.js.map",
-    "static/js/2.1e26e12f.chunk.js": "/coding-website/static/js/2.1e26e12f.chunk.js",
-    "static/js/2.1e26e12f.chunk.js.map": "/coding-website/static/js/2.1e26e12f.chunk.js.map",
+    "static/js/2.7c9d57bd.chunk.js": "/coding-website/static/js/2.7c9d57bd.chunk.js",
+    "static/js/2.7c9d57bd.chunk.js.map": "/coding-website/static/js/2.7c9d57bd.chunk.js.map",
     "index.html": "/coding-website/index.html",
     "static/css/main.6dea0f05.chunk.css.map": "/coding-website/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.1e26e12f.chunk.js.LICENSE.txt": "/coding-website/static/js/2.1e26e12f.chunk.js.LICENSE.txt"
+    "static/js/2.7c9d57bd.chunk.js.LICENSE.txt": "/coding-website/static/js/2.7c9d57bd.chunk.js.LICENSE.txt",
+    "static/media/agileWork.a38f3cbd.jpg": "/coding-website/static/media/agileWork.a38f3cbd.jpg",
+    "static/media/techSkills.fdb3402e.jpg": "/coding-website/static/media/techSkills.fdb3402e.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.4df7c388.js",
-    "static/js/2.1e26e12f.chunk.js",
+    "static/js/2.7c9d57bd.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.73a914b6.chunk.js"
+    "static/js/main.34c5cc3e.chunk.js"
   ]
 }
