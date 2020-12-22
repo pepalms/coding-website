@@ -1,9 +1,16 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import clsx from "clsx";
-import { Grid, Paper, Typography } from "@material-ui/core";
+import { Box, Grid, Paper, Typography } from "@material-ui/core";
 import technical from "../images/techSkills.jpg";
 import softSkills from "../images/agileWork.jpg";
+import learningBanner from "../images/Learning-banner.jpg";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   toolBar: {
@@ -42,6 +49,25 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  header: {
+    fontWeight: 500,
+    backgroundImage: `url(${learningBanner})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    height: "40vh",
+    display: "flex",
+    justifyContent: "flex-start",
+    color: "white",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+  headerText: {
+    position: "relative",
+    left: "25%",
+    top: "15%",
+  },
   subBanner: {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -71,6 +97,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Welcome(props) {
   const classes = useStyles();
+  const theme = useTheme();
   //  needed to make the page move with the drawer might be worth turning off for mobile
 
   return (
@@ -83,53 +110,109 @@ export default function Welcome(props) {
 
       <div className={classes.toolBar} />
 
-      <Grid
-        container
-        justify="center"
-        xs={11}
-        className={classes.welcomeContainer}
-        spacing={6}
+      {/* header banner */}
+
+      <Box className={classes.header} display={{ xs: "none", md: "block" }}>
+        <Box align="start" className={classes.headerText}>
+          <Typography variant="h2" fontFamily="Monospace">
+            Learning is Fun
+          </Typography>
+          <Typography variant="subtitle2" gutterBottom="true">
+            “Intellectual growth should commence at birth and cease only at
+            death.” - <i> Einstein </i>
+          </Typography>
+        </Box>
+      </Box>
+      <Typography
+        variant="h2"
+        color="Primary"
+        align="center"
+        gutterBottom="true"
+        mt={2}
       >
-        {/* main banner */}
+        Topics
+      </Typography>
 
-        <Grid item md={7} align="center" className={classes.hideWhenSmall}>
-          <Paper>
-            <Typography variant="h1">LEARNING IS FUN</Typography>
-            <Typography variant="body1" gutterBottom="true">
-              “Intellectual growth should commence at birth and cease only at
-              death.” - <i> Einstein </i>
-            </Typography>
-            <br />
-            <Typography variant="body1">
-              This is a scrapbook of techniques, it's by no means exhaustive and
-              might actually be wrong in some places buts it's the engineering
-              world as we understand it today (2 months into the scheme).
-            </Typography>
-          </Paper>
+      {/* topic cards */}
+      <Box display="flex" justifyContent="center">
+        <Grid container xs={10} spacing={2} align="center" m>
+          <Grid item lg={4} md={6} xs={12} justify="center" align="center">
+            <Card className={classes.root}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  className={classes.media}
+                  image={`${technical}`}
+                  title="computer work"
+                  height="240px"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Front-end development
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    This is the part of the application that the user interacts
+                    with. Its primarily a skeleton of HTML elements fleshed out
+                    with styles from CSS and interactivity from Javascript
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+
+          <Grid item lg={4} md={6} xs={12} justify="center" align="center">
+            <Card className={classes.root}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  className={classes.media}
+                  image={`${technical}`}
+                  title="coding"
+                  height="240px"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Back-end Development
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    This is the part of the application that the user interacts
+                    with. Its primarily a skeleton of HTML elements fleshed out
+                    with styles from CSS and interactivity from Javascript
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+
+          <Grid item md={6} xs={12} justify="center" align="center">
+            <Paper className={clsx(classes.technical, classes.subBanner)}>
+              <Typography variant="h4">Back-end development</Typography>
+              <Typography className={classes.skillsInformation}>
+                These are the skills that are needed to help in the development
+                of products
+              </Typography>
+            </Paper>
+          </Grid>
+
+          <Grid item md={6} xs={12} align="center">
+            <Paper className={clsx(classes.soft, classes.subBanner)}>
+              <Typography variant="h4">Transferable Skills</Typography>
+              <Typography className={`${classes.skillsInformation}`}>
+                These are the skills that are needed in order to work
+                efficiently within the team
+              </Typography>
+            </Paper>
+          </Grid>
         </Grid>
-
-        {/* sub banners */}
-
-        <Grid item md={6} xs={12} justify="center" align="center">
-          <Paper className={clsx(classes.technical, classes.subBanner)}>
-            <Typography variant="h4"> Technical Skills</Typography>
-            <Typography className={classes.skillsInformation}>
-              These are the skills that are needed to help in the development of
-              products
-            </Typography>
-          </Paper>
-        </Grid>
-
-        <Grid item md={6} xs={12} align="center">
-          <Paper className={clsx(classes.soft, classes.subBanner)}>
-            <Typography variant="h4">Transferable Skills</Typography>
-            <Typography className={`${classes.skillsInformation}`}>
-              These are the skills that are needed in order to work efficiently
-              within the team
-            </Typography>
-          </Paper>
-        </Grid>
-      </Grid>
+      </Box>
     </div>
   );
 }

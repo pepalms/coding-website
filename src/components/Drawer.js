@@ -92,10 +92,9 @@ const useStyles = makeStyles((theme) => ({
 const topicArray = [
   { title: "Welcome", Icon: FaHome, link: "/coding-website" },
   { title: "HTML & CSS", Icon: FaHtml5, link: "/HTML" },
-  { title: "Javascript", Icon: DiJavascript1, link: "/JavaScript" },
+  { title: "JavaScript", Icon: DiJavascript1, link: "/JavaScript" },
   { title: "React", Icon: FaReact, link: "/React" },
-  { title: "Material UI", Icon: FaPencilAlt, link: "/MaterialUI" },
-  { title: "Cypress", Icon: FaFlask, link: "/Cypress" },
+  { title: "Testing", Icon: FaFlask, link: "/Cypress" },
   { title: "Agile Working", Icon: FaRunning, link: "/Agile" },
   { title: "GitHub", Icon: FaGithub, link: "/GitHub" },
   { title: "Jira", Icon: FaJira, link: "/Jira" },
@@ -132,7 +131,7 @@ export default function NavDrawer(props) {
       </div>
       <Divider />
       <List>
-        {topicArray.slice(0, 4).map((item, index) => (
+        {topicArray.slice(0, 5).map((item, index) => (
           <NavLink
             to={item.link}
             className={classes.linkLook}
@@ -154,7 +153,7 @@ export default function NavDrawer(props) {
       </List>
       <Divider />
       <List>
-        {topicArray.slice(4, 8).map((item, index) => (
+        {topicArray.slice(5, 10).map((item, index) => (
           <NavLink
             to={item.link}
             className={classes.linkLook}
