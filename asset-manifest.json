@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/coding-website/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/coding-website/static/js/main.88c43d5d.chunk.js",
-    "main.js.map": "/coding-website/static/js/main.88c43d5d.chunk.js.map",
+    "main.js": "/coding-website/static/js/main.2c0ab06e.chunk.js",
+    "main.js.map": "/coding-website/static/js/main.2c0ab06e.chunk.js.map",
     "runtime-main.js": "/coding-website/static/js/runtime-main.4df7c388.js",
     "runtime-main.js.map": "/coding-website/static/js/runtime-main.4df7c388.js.map",
     "static/js/2.6ffc23f1.chunk.js": "/coding-website/static/js/2.6ffc23f1.chunk.js",
@@ -13,7 +13,7 @@
     "static/media/Learning-banner.d4c474de.jpg": "/coding-website/static/media/Learning-banner.d4c474de.jpg",
     "static/media/agileWork.33f3e5bf.jpg": "/coding-website/static/media/agileWork.33f3e5bf.jpg",
     "static/media/backEnd.f5af5b2f.jpg": "/coding-website/static/media/backEnd.f5af5b2f.jpg",
-    "static/media/frontEnd-banner.22ef2cd2.jpg": "/coding-website/static/media/frontEnd-banner.22ef2cd2.jpg",
+    "static/media/frontEnd-banner.343e8606.jpg": "/coding-website/static/media/frontEnd-banner.343e8606.jpg",
     "static/media/techSkills.fdb3402e.jpg": "/coding-website/static/media/techSkills.fdb3402e.jpg",
     "static/media/testing.781e8b23.jpg": "/coding-website/static/media/testing.781e8b23.jpg"
   },
@@ -21,6 +21,6 @@
     "static/js/runtime-main.4df7c388.js",
     "static/js/2.6ffc23f1.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.88c43d5d.chunk.js"
+    "static/js/main.2c0ab06e.chunk.js"
   ]
 }
