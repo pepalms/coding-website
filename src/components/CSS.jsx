@@ -1,6 +1,7 @@
 import { Box, Grid, Paper, Typography } from "@material-ui/core";
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import cssBanner from "../images/css-banner.jpg";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -16,9 +17,18 @@ const useStyles = makeStyles((theme) => ({
     height: "20vh",
     display: "flex",
     justifyContent: "flex-start",
-    //backgroundColor: "grey",
-    color: "black",
-    border: "solid 1px",
+    backgroundImage: `url(${cssBanner})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPostion: "50% 90%",
+    color: "white",
+    textDecoration: "underline",
+    marginTop: "20px",
+    margin: "0 auto",
+  },
+  headerText: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    padding: "1vh",
   },
   gridContainer: {
     margin: "auto",
@@ -26,18 +36,20 @@ const useStyles = makeStyles((theme) => ({
   innercontainer: {},
 }));
 
-export default function JavaScript() {
+export default function CSS() {
   const classes = useStyles();
 
   return (
     <div>
       <div className={classes.toolBar} />
       <Box className={classes.header}>
-        <Box mx="auto" my="auto">
-          <Typography id="HTML" variant="h6">
-            &lt; HTML &gt;
+        <Box mx="auto" my="auto" className={classes.headerText}>
+          <Typography id="CSS" variant="h6">
+            CSS
           </Typography>
-          <Typography>It's not the most fancy, but its needed.</Typography>
+          <Typography>
+            It's very fancy, and it makes everything else fancy.
+          </Typography>
         </Box>
       </Box>
       <Grid container xs={12} spacing={1} className={classes.gridContainer}>

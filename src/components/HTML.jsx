@@ -19,14 +19,13 @@ const useStyles = makeStyles((theme) => ({
     //backgroundColor: "grey",
     color: "black",
     border: "solid 1px",
+    margin: "0 10px",
   },
-  gridContainer: {
-    margin: "auto",
-  },
+  gridContainer: { margin: "5px auto" },
   innercontainer: {},
 }));
 
-export default function JavaScript() {
+export default function HTML() {
   const classes = useStyles();
 
   return (
@@ -41,7 +40,7 @@ export default function JavaScript() {
         </Box>
       </Box>
       <Grid container xs={12} spacing={1} className={classes.gridContainer}>
-        <Grid item container xs={8} spacing={1}>
+        <Grid item container xs={12} md={8} spacing={1}>
           <Grid item xs={12}>
             <Paper elevation={3}>
               <Box p={1}>
@@ -59,7 +58,7 @@ export default function JavaScript() {
               </Box>
             </Paper>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Paper elevation={3}>
               <Box p={1}>
                 <Typography variant="h6">Something Else</Typography>
@@ -76,7 +75,7 @@ export default function JavaScript() {
               </Box>
             </Paper>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Paper elevation={3}>
               <Box p={1}>
                 <Typography variant="h6">Where to learn more</Typography>
@@ -94,7 +93,7 @@ export default function JavaScript() {
             </Paper>
           </Grid>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <Paper elevation={3}>
             <Box p={1}>
               <Typography variant="h6">Key Features</Typography>

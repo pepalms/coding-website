@@ -10,19 +10,20 @@ import Drawer from "@material-ui/core/Drawer";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
+import { NavHashLink } from "react-router-hash-link";
 import {
   FaBookOpen,
+  FaCss3Alt,
   FaFlask,
   FaGithub,
   FaHome,
   FaHtml5,
-  FaJava,
   FaJira,
-  FaPencilAlt,
   FaReact,
   FaRunning,
 } from "react-icons/fa";
 import { DiJavascript1 } from "react-icons/di";
+import { SiCsharp, SiDotNet } from "react-icons/si";
 import { NavLink, useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     overflowX: "hidden",
-    width: theme.spacing(7) + 1,
+    width: theme.spacing(0) + 0,
     [theme.breakpoints.up("sm")]: {
       width: theme.spacing(9) + 1,
     },
@@ -91,10 +92,13 @@ const useStyles = makeStyles((theme) => ({
 
 const topicArray = [
   { title: "Welcome", Icon: FaHome, link: "/coding-website" },
-  { title: "HTML & CSS", Icon: FaHtml5, link: "/HTML" },
-  { title: "JavaScript", Icon: DiJavascript1, link: "/JavaScript" },
-  { title: "React", Icon: FaReact, link: "/React" },
-  { title: "Testing", Icon: FaFlask, link: "/Cypress" },
+  { title: "HTML", Icon: FaHtml5, link: "/Front-end#HTML" },
+  { title: "CSS", Icon: FaCss3Alt, link: "/Front-end#CSS" },
+  { title: "JavaScript", Icon: DiJavascript1, link: "/Front-end#Java-Script" },
+  { title: "React", Icon: FaReact, link: "/Front-end#React" },
+  { title: "C#", Icon: SiCsharp, link: "/Back-end#C-sharp" },
+  { title: ".NET", Icon: SiDotNet, link: "/Back-end#.NET" },
+  { title: "Testing", Icon: FaFlask, link: "/Testing" },
   { title: "Agile Working", Icon: FaRunning, link: "/Agile" },
   { title: "GitHub", Icon: FaGithub, link: "/GitHub" },
   { title: "Jira", Icon: FaJira, link: "/Jira" },
@@ -131,9 +135,10 @@ export default function NavDrawer(props) {
       </div>
       <Divider />
       <List>
-        {topicArray.slice(0, 5).map((item, index) => (
-          <NavLink
+        {topicArray.slice(0, 7).map((item, index) => (
+          <NavHashLink
             to={item.link}
+            smooth
             className={classes.linkLook}
             activeClassName={classes.iconActive}
           >
@@ -148,12 +153,12 @@ export default function NavDrawer(props) {
               </ListItemIcon>
               <ListItemText primary={item.title} />
             </ListItem>
-          </NavLink>
+          </NavHashLink>
         ))}
       </List>
       <Divider />
       <List>
-        {topicArray.slice(5, 10).map((item, index) => (
+        {topicArray.slice(7, 12).map((item, index) => (
           <NavLink
             to={item.link}
             className={classes.linkLook}
