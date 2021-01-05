@@ -4,6 +4,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import HTML from "./HTML";
 import FrontEndBanner from "../images/frontEnd-banner.jpg";
 import CSS from "./CSS";
+import JavaScript from "./JavaScript";
 
 const useStyles = makeStyles((theme) => ({
   conditionalMargin: {
@@ -40,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
     margin: " auto",
     paddingTop: "10px",
   },
+  hideWhenSmall: {
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+  },
 }));
 
 export default function FrontEnd() {
@@ -54,7 +60,11 @@ export default function FrontEnd() {
           <Typography variant="h2" fontFamily="Monospace">
             Front-end Development
           </Typography>
-          <Typography variant="subtitle1" gutterBottom="true">
+          <Typography
+            variant="subtitle1"
+            gutterBottom="true"
+            className={classes.hideWhenSmall}
+          >
             The bit that the user interacts with.
           </Typography>
         </Box>
@@ -63,6 +73,7 @@ export default function FrontEnd() {
         <Box className={classes.innerContainer}>
           <HTML />
           <CSS />
+          <JavaScript />
         </Box>
       </Box>
     </div>

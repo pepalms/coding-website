@@ -1,6 +1,7 @@
 import { Box, Grid, Paper, Typography } from "@material-ui/core";
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import JavaScriptBanner from "../images/javascriptBanner.jpg";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -16,14 +17,41 @@ const useStyles = makeStyles((theme) => ({
     height: "20vh",
     display: "flex",
     justifyContent: "flex-start",
-    //backgroundColor: "grey",
-    color: "black",
-    border: "solid 1px",
+    backgroundImage: `url(${JavaScriptBanner})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPostion: "50% 90%",
+    color: "white",
+    marginTop: "20px",
+    margin: "0 auto",
   },
   gridContainer: {
-    margin: "auto",
+    marginTop: "5px",
+    margin: "-2px",
   },
-  innercontainer: {},
+
+  hideWhenSmall: {
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+  },
+  informationBox: {
+    overflowY: "scroll",
+    flexDirection: "column",
+    //the max height needs to change based on the height of the other two components but I don't know how to get it to do that
+    maxHeight: "465px",
+    "&::-webkit-scrollbar": {
+      width: "0.4em",
+    },
+    "&::-webkit-scrollbar-track": {
+      boxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+      webkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "black",
+      outline: "",
+    },
+  },
 }));
 
 export default function JavaScript() {
@@ -34,14 +62,17 @@ export default function JavaScript() {
       <div className={classes.toolBar} />
       <Box className={classes.header}>
         <Box mx="auto" my="auto">
-          <Typography id="HTML" variant="h6">
-            &lt; HTML &gt;
+          <Typography id="JavaScript" variant="h6">
+            JavaScript
           </Typography>
-          <Typography>It's not the most fancy, but its needed.</Typography>
+          <Typography>
+            It does all the logic and makes the site capable of interesting
+            things
+          </Typography>
         </Box>
       </Box>
       <Grid container xs={12} spacing={1} className={classes.gridContainer}>
-        <Grid item container xs={8} spacing={1}>
+        <Grid item container xs={12} md={8} spacing={1}>
           <Grid item xs={12}>
             <Paper elevation={3}>
               <Box p={1}>
@@ -59,7 +90,7 @@ export default function JavaScript() {
               </Box>
             </Paper>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Paper elevation={3}>
               <Box p={1}>
                 <Typography variant="h6">Something Else</Typography>
@@ -76,7 +107,7 @@ export default function JavaScript() {
               </Box>
             </Paper>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Paper elevation={3}>
               <Box p={1}>
                 <Typography variant="h6">Where to learn more</Typography>
@@ -94,11 +125,18 @@ export default function JavaScript() {
             </Paper>
           </Grid>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <Paper elevation={3}>
-            <Box p={1}>
+            <Box p={1} className={classes.informationBox} display="flex">
               <Typography variant="h6">Key Features</Typography>
               <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
