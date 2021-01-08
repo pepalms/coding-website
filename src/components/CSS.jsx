@@ -128,7 +128,7 @@ export default function CSS() {
             </Paper>
           </Grid>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <Paper elevation={3} style={{ backgroundColor: "#b2dfdb" }}>
             <Box p={1} className={classes.informationBox}>
               <Typography variant="h6">Key Features</Typography>

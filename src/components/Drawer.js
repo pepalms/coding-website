@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
   },
   accordianSummary: {
     boxShadow: "none",
-    paddingLeft: "16px",
+    paddingLeft: "24px",
     justifyContent: "flex-start",
   },
 
