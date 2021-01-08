@@ -10,20 +10,27 @@ import Drawer from "@material-ui/core/Drawer";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
+import { NavHashLink } from "react-router-hash-link";
 import {
   FaBookOpen,
+  FaCss3Alt,
   FaFlask,
   FaGithub,
   FaHome,
   FaHtml5,
-  FaJava,
   FaJira,
-  FaPencilAlt,
   FaReact,
   FaRunning,
 } from "react-icons/fa";
+import { IoServerOutline } from "react-icons/io5";
 import { DiJavascript1 } from "react-icons/di";
+import { SiCsharp, SiDotNet } from "react-icons/si";
 import { NavLink, useLocation } from "react-router-dom";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Typography from "@material-ui/core/Typography";
 
 const drawerWidth = 240;
 
@@ -55,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     overflowX: "hidden",
-    width: theme.spacing(7) + 1,
+    width: theme.spacing(0) + 0,
     [theme.breakpoints.up("sm")]: {
       width: theme.spacing(9) + 1,
     },
@@ -77,25 +84,59 @@ const useStyles = makeStyles((theme) => ({
     color: "inherit",
   },
   iconColor: {
-    color: theme.palette.primary.main,
+    color: theme.palette.primary.light,
   },
   iconActive: {
-    "& $iconColor": { fill: theme.palette.secondary.main },
+    "& $iconColor": {
+      fill: theme.palette.secondary.main,
+      color: theme.palette.secondary.main,
+    },
+  },
+  primaryIconColor: {
+    fill: theme.palette.primary.main,
+    color: theme.palette.primary.main,
   },
   listItems: {
     "&:hover $iconColor": {
       fill: theme.palette.secondary.main,
+      color: theme.palette.secondary.main,
     },
+  },
+  primaryListItems: {
+    "&:hover $primaryIconColor": {
+      fill: theme.palette.secondary.main,
+      color: theme.palette.secondary.main,
+    },
+  },
+  accordianTop: {
+    boxShadow: "none",
+    padding: "0 16px 0 0",
+    width: (props) => (props.isDrawerOpen ? "100%" : "74px"),
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+  },
+  accordianSummary: {
+    boxShadow: "none",
+    paddingLeft: "24px",
+    justifyContent: "flex-start",
+  },
+
+  accordianDetails: {
+    width: "240px",
+    padding: 0,
   },
 }));
 
 const topicArray = [
   { title: "Welcome", Icon: FaHome, link: "/coding-website" },
-  { title: "HTML & CSS", Icon: FaHtml5, link: "/HTML" },
-  { title: "Javascript", Icon: DiJavascript1, link: "/JavaScript" },
-  { title: "React", Icon: FaReact, link: "/React" },
-  { title: "Material UI", Icon: FaPencilAlt, link: "/MaterialUI" },
-  { title: "Cypress", Icon: FaFlask, link: "/Cypress" },
+  { title: "HTML", Icon: FaHtml5, link: "/Front-end#HTML" },
+  { title: "CSS", Icon: FaCss3Alt, link: "/Front-end#CSS" },
+  { title: "JavaScript", Icon: DiJavascript1, link: "/Front-end#JavaScript" },
+  { title: "React", Icon: FaReact, link: "/Front-end#React" },
+  { title: "C#", Icon: SiCsharp, link: "/Back-end#C-sharp" },
+  { title: ".NET", Icon: SiDotNet, link: "/Back-end#.NET" },
+  { title: "Testing", Icon: FaFlask, link: "/Testing" },
   { title: "Agile Working", Icon: FaRunning, link: "/Agile" },
   { title: "GitHub", Icon: FaGithub, link: "/GitHub" },
   { title: "Jira", Icon: FaJira, link: "/Jira" },
@@ -103,7 +144,7 @@ const topicArray = [
 ];
 
 export default function NavDrawer(props) {
-  const classes = useStyles();
+  const classes = useStyles(props);
   const theme = useTheme();
   const pathName = useLocation();
 
@@ -132,47 +173,203 @@ export default function NavDrawer(props) {
       </div>
       <Divider />
       <List>
-        {topicArray.slice(0, 4).map((item, index) => (
-          <NavLink
-            to={item.link}
-            className={classes.linkLook}
-            activeClassName={classes.iconActive}
+        {/* home page button  */}
+
+        <NavHashLink
+          to="/coding-website"
+          smooth
+          className={classes.linkLook}
+          activeClassName={classes.iconActive}
+        >
+          <ListItem
+            button
+            disabled={pathName.pathname === "/coding-website" ? true : false}
+            className={classes.listItems}
           >
-            <ListItem
-              button
-              key={item}
-              disabled={pathName.pathname === item.link ? true : false}
-              className={classes.listItems}
+            <ListItemIcon>
+              <FaHome size={24} className={classes.iconColor} />
+            </ListItemIcon>
+            <ListItemText primary={"Welcome"} />
+          </ListItem>
+        </NavHashLink>
+        <Divider />
+
+        {/* front-end development section */}
+
+        <ListItem className={classes.primaryListItems} disableGutters="true">
+          <Accordion className={classes.accordianTop}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              className={classes.accordianSummary}
             >
               <ListItemIcon>
-                <item.Icon size={24} className={clsx(classes.iconColor)} />
+                <FaReact size={24} className={classes.primaryIconColor} />
               </ListItemIcon>
-              <ListItemText primary={item.title} />
-            </ListItem>
-          </NavLink>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {topicArray.slice(4, 8).map((item, index) => (
-          <NavLink
-            to={item.link}
-            className={classes.linkLook}
-            activeClassName={classes.iconActive}
-          >
-            <ListItem
-              button
-              key={item}
-              disabled={pathName.pathname === item.link ? true : false}
-              className={classes.listItems}
+              <Typography className={classes.heading}>Front-end</Typography>
+            </AccordionSummary>
+            <AccordionDetails className={classes.accordianDetails}>
+              <List className={classes.accordianDetails}>
+                {topicArray.slice(1, 4).map((item) => (
+                  <NavHashLink
+                    to={item.link}
+                    className={classes.linkLook}
+                    activeClassName={classes.iconActive}
+                  >
+                    <ListItem
+                      button
+                      key={item}
+                      disabled={pathName.pathname === item.link ? true : false}
+                      className={clsx(classes.listItems)}
+                    >
+                      <ListItemIcon>
+                        <item.Icon
+                          size={20}
+                          className={clsx(classes.iconColor)}
+                        />
+                      </ListItemIcon>
+                      <ListItemText primary={item.title} />
+                    </ListItem>
+                  </NavHashLink>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
+        </ListItem>
+
+        <Divider />
+
+        {/* back end section */}
+
+        <ListItem className={classes.primaryListItems} disableGutters="true">
+          <Accordion className={classes.accordianTop}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              className={classes.accordianSummary}
             >
               <ListItemIcon>
-                <item.Icon size={24} className={clsx(classes.iconColor)} />
+                <IoServerOutline
+                  size={20}
+                  className={classes.primaryIconColor}
+                />
               </ListItemIcon>
-              <ListItemText primary={item.title} />
-            </ListItem>
-          </NavLink>
-        ))}
+              <Typography className={classes.heading}>Back-end</Typography>
+            </AccordionSummary>
+            <AccordionDetails className={classes.accordianDetails}>
+              <List className={classes.accordianDetails}>
+                {topicArray.slice(5, 7).map((item, index) => (
+                  <NavHashLink
+                    to={item.link}
+                    className={classes.linkLook}
+                    activeClassName={classes.iconActive}
+                  >
+                    <ListItem
+                      button
+                      key={item}
+                      disabled={pathName.pathname === item.link ? true : false}
+                      className={classes.listItems}
+                    >
+                      <ListItemIcon>
+                        <item.Icon
+                          size={24}
+                          className={clsx(classes.iconColor)}
+                        />
+                      </ListItemIcon>
+                      <ListItemText primary={item.title} />
+                    </ListItem>
+                  </NavHashLink>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
+        </ListItem>
+
+        <Divider />
+
+        {/* testing section */}
+
+        <ListItem className={classes.primaryListItems} disableGutters="true">
+          <Accordion className={classes.accordianTop}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              className={classes.accordianSummary}
+            >
+              <ListItemIcon>
+                <FaFlask size={20} className={classes.primaryIconColor} />
+              </ListItemIcon>
+              <Typography className={classes.heading}>Testing</Typography>
+            </AccordionSummary>
+            <AccordionDetails className={classes.accordianDetails}>
+              <List className={classes.accordianDetails}>
+                {topicArray.slice(7, 8).map((item, index) => (
+                  <NavHashLink
+                    to={item.link}
+                    className={classes.linkLook}
+                    activeClassName={classes.iconActive}
+                  >
+                    <ListItem
+                      button
+                      key={item}
+                      disabled={pathName.pathname === item.link ? true : false}
+                      className={classes.listItems}
+                    >
+                      <ListItemIcon>
+                        <item.Icon
+                          size={24}
+                          className={clsx(classes.iconColor)}
+                        />
+                      </ListItemIcon>
+                      <ListItemText primary={item.title} />
+                    </ListItem>
+                  </NavHashLink>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
+        </ListItem>
+
+        <Divider />
+
+        {/* working section */}
+
+        <ListItem className={classes.primaryListItems} disableGutters="true">
+          <Accordion className={classes.accordianTop}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              className={classes.accordianSummary}
+            >
+              <ListItemIcon>
+                <FaHome size={20} className={classes.primaryIconColor} />
+              </ListItemIcon>
+              <Typography className={classes.heading}>Working</Typography>
+            </AccordionSummary>
+            <AccordionDetails className={classes.accordianDetails}>
+              <List className={classes.accordianDetails}>
+                {topicArray.slice(8, 12).map((item) => (
+                  <NavHashLink
+                    to={item.link}
+                    className={classes.linkLook}
+                    activeClassName={classes.iconActive}
+                  >
+                    <ListItem
+                      button
+                      key={item}
+                      disabled={pathName.pathname === item.link ? true : false}
+                      className={classes.listItems}
+                    >
+                      <ListItemIcon>
+                        <item.Icon
+                          size={20}
+                          className={clsx(classes.iconColor)}
+                        />
+                      </ListItemIcon>
+                      <ListItemText primary={item.title} />
+                    </ListItem>
+                  </NavHashLink>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
+        </ListItem>
       </List>
     </Drawer>
   );
