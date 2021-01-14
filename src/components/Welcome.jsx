@@ -13,6 +13,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import backEnd from "../images/backEnd.jpg";
 import agileWorking from "../images/agileWork.jpg";
 import testing from "../images/testing.jpg";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   toolBar: {
@@ -79,6 +80,10 @@ const useStyles = makeStyles((theme) => ({
     flexBasis: "fill",
     justifyContent: "space-between",
   },
+  linkLook: {
+    textDecoration: "none",
+    color: "inherit",
+  },
 }));
 
 export default function Welcome(props) {
@@ -124,106 +129,114 @@ export default function Welcome(props) {
 
         <Grid container xs={12} spacing={1}>
           <Grid item lg={3} md={4} xs={12}>
-            <Card className={classes.cardStyle}>
-              <CardActionArea className={classes.cardAction}>
-                <CardMedia
-                  component="img"
-                  className={classes.media}
-                  image={`${technical}`}
-                  title="computer work"
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Front-end development
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    The part of the application that the user interacts with.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+            <Link to="/Front-end" className={classes.linkLook}>
+              <Card className={classes.cardStyle}>
+                <CardActionArea className={classes.cardAction}>
+                  <CardMedia
+                    component="img"
+                    className={classes.media}
+                    image={`${technical}`}
+                    title="computer work"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Front-end development
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      The part of the application that the user interacts with.
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Link>
           </Grid>
 
           <Grid item lg={3} md={4} xs={12} direction="column">
-            <Card className={classes.cardStyle}>
-              <CardActionArea className={classes.cardAction}>
-                <CardMedia
-                  component="img"
-                  className={classes.media}
-                  image={`${backEnd}`}
-                  title="coding"
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Back-end Development
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    Databases?... Servers?... other stuff I've not looked at
-                    yet.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+            <Link to="Back-end" className={classes.linkLook}>
+              <Card className={classes.cardStyle}>
+                <CardActionArea className={classes.cardAction}>
+                  <CardMedia
+                    component="img"
+                    className={classes.media}
+                    image={`${backEnd}`}
+                    title="coding"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Back-end Development
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      Databases?... Servers?... other stuff I've not looked at
+                      yet.
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Link>
           </Grid>
 
           <Grid item lg={3} md={4} xs={12}>
-            <Card className={classes.cardStyle}>
-              <CardActionArea className={classes.cardAction}>
-                <CardMedia
-                  component="img"
-                  className={classes.media}
-                  image={`${testing}`}
-                  title="coding"
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Testing
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    You've gotta check and double check that it all works. All
-                    of it!
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+            <Link to="/Testing" className={classes.linkLook}>
+              <Card className={classes.cardStyle}>
+                <CardActionArea className={classes.cardAction}>
+                  <CardMedia
+                    component="img"
+                    className={classes.media}
+                    image={`${testing}`}
+                    title="coding"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Testing
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      You've gotta check and double check that it all works. All
+                      of it!
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Link>
           </Grid>
 
           <Grid item lg={3} md={4} xs={12}>
-            <Card className={classes.cardStyle}>
-              <CardActionArea className={classes.cardAction}>
-                <CardMedia
-                  component="img"
-                  className={classes.media}
-                  image={`${agileWorking}`}
-                  title="coding"
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Ways of Working
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    Techniques and technology that help everyone work
-                    effectively.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+            <Link to="/Working" className={classes.linkLook}>
+              <Card className={classes.cardStyle}>
+                <CardActionArea className={classes.cardAction}>
+                  <CardMedia
+                    component="img"
+                    className={classes.media}
+                    image={`${agileWorking}`}
+                    title="coding"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Ways of Working
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      Techniques and technology that help everyone work
+                      effectively.
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Link>
           </Grid>
         </Grid>
       </Box>

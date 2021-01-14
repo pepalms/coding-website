@@ -1,7 +1,7 @@
 import { Box, Grid, Paper, Typography } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import cssBanner from "../images/css-banner.jpg";
+import cssBanner from "../../images/css-banner.jpg";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -11,6 +11,12 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
+  },
+  line: {
+    height: "1px",
+    margin: "25px auto",
+    borderRadius: "1px",
+    backgroundImage: `linear-gradient(to right, transparent, ${theme.palette.primary.main}, transparent)`,
   },
   header: {
     fontWeight: 500,
@@ -22,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundPostion: "50% 90%",
     color: "white",
-    marginTop: "20px",
     margin: "0 auto",
   },
   headerText: {
@@ -63,7 +68,7 @@ export default function CSS() {
 
   return (
     <div>
-      <div className={classes.toolBar} />
+      <Box className={classes.line}></Box>
       <Box className={classes.header}>
         <Box mx="auto" my="auto" className={classes.headerText}>
           <Typography id="CSS" variant="h6">

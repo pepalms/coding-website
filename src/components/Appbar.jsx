@@ -7,6 +7,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
 
 const drawerWidth = 240;
 
@@ -53,6 +55,13 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  linkLook: {
+    textDecoration: "none",
+    color: "inherit",
+  },
+  title: {
+    flexgrow: 1,
+  },
 }));
 
 export default function MiniDrawer(props) {
@@ -79,9 +88,14 @@ export default function MiniDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            2020 Software Engineering learning
-          </Typography>
+          <Link to="/coding-website" className={classes.linkLook}>
+            <Typography variant="h6" noWrap className={classes.title}>
+              2020 SE Learning
+            </Typography>
+          </Link>
+          <IconButton>
+            <FaGithub />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>

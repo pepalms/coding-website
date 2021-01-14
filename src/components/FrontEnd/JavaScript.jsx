@@ -1,7 +1,7 @@
 import { Box, Grid, Paper, Typography } from "@material-ui/core";
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import JavaScriptBanner from "../images/javascriptBanner.jpg";
+import JavaScriptBanner from "../../images/javascriptBanner.jpg";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -11,6 +11,12 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
+  },
+  line: {
+    height: "1px",
+    margin: "25px auto",
+    borderRadius: "1px",
+    backgroundImage: `linear-gradient(to right, transparent, ${theme.palette.primary.main}, transparent)`,
   },
   header: {
     fontWeight: 500,
@@ -59,7 +65,7 @@ export default function JavaScript() {
 
   return (
     <div>
-      <div className={classes.toolBar} />
+      <div className={classes.line} />
       <Box className={classes.header}>
         <Box mx="auto" my="auto">
           <Typography id="JavaScript" variant="h6">

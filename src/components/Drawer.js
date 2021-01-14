@@ -21,10 +21,12 @@ import {
   FaJira,
   FaReact,
   FaRunning,
+  FaBriefcase,
 } from "react-icons/fa";
 import { IoServerOutline } from "react-icons/io5";
 import { DiJavascript1 } from "react-icons/di";
 import { SiCsharp, SiDotNet } from "react-icons/si";
+import { AiOutlineApi } from "react-icons/ai";
 import { NavLink, useLocation } from "react-router-dom";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -136,10 +138,11 @@ const topicArray = [
   { title: "React", Icon: FaReact, link: "/Front-end#React" },
   { title: "C#", Icon: SiCsharp, link: "/Back-end#C-sharp" },
   { title: ".NET", Icon: SiDotNet, link: "/Back-end#.NET" },
-  { title: "Testing", Icon: FaFlask, link: "/Testing" },
-  { title: "Agile Working", Icon: FaRunning, link: "/Agile" },
-  { title: "GitHub", Icon: FaGithub, link: "/GitHub" },
-  { title: "Jira", Icon: FaJira, link: "/Jira" },
+  { title: "API", Icon: AiOutlineApi, link: "/Back-end#API" },
+  { title: "Cypress", Icon: FaFlask, link: "/Testing#Cypress" },
+  { title: "Agile Working", Icon: FaRunning, link: "/Working#Agile" },
+  { title: "GitHub", Icon: FaGithub, link: "/Working#GitHub" },
+  { title: "Jira", Icon: FaJira, link: "/Working#Jira" },
   { title: "Learning resources", Icon: FaBookOpen, link: "/Learning" },
 ];
 
@@ -248,7 +251,7 @@ export default function NavDrawer(props) {
             >
               <ListItemIcon>
                 <IoServerOutline
-                  size={20}
+                  size={24}
                   className={classes.primaryIconColor}
                 />
               </ListItemIcon>
@@ -256,7 +259,7 @@ export default function NavDrawer(props) {
             </AccordionSummary>
             <AccordionDetails className={classes.accordianDetails}>
               <List className={classes.accordianDetails}>
-                {topicArray.slice(5, 7).map((item, index) => (
+                {topicArray.slice(5, 8).map((item, index) => (
                   <NavHashLink
                     to={item.link}
                     className={classes.linkLook}
@@ -294,13 +297,13 @@ export default function NavDrawer(props) {
               className={classes.accordianSummary}
             >
               <ListItemIcon>
-                <FaFlask size={20} className={classes.primaryIconColor} />
+                <FaFlask size={24} className={classes.primaryIconColor} />
               </ListItemIcon>
               <Typography className={classes.heading}>Testing</Typography>
             </AccordionSummary>
             <AccordionDetails className={classes.accordianDetails}>
               <List className={classes.accordianDetails}>
-                {topicArray.slice(7, 8).map((item, index) => (
+                {topicArray.slice(8, 9).map((item, index) => (
                   <NavHashLink
                     to={item.link}
                     className={classes.linkLook}
@@ -314,7 +317,7 @@ export default function NavDrawer(props) {
                     >
                       <ListItemIcon>
                         <item.Icon
-                          size={24}
+                          size={20}
                           className={clsx(classes.iconColor)}
                         />
                       </ListItemIcon>
@@ -338,13 +341,13 @@ export default function NavDrawer(props) {
               className={classes.accordianSummary}
             >
               <ListItemIcon>
-                <FaHome size={20} className={classes.primaryIconColor} />
+                <FaBriefcase size={24} className={classes.primaryIconColor} />
               </ListItemIcon>
               <Typography className={classes.heading}>Working</Typography>
             </AccordionSummary>
             <AccordionDetails className={classes.accordianDetails}>
               <List className={classes.accordianDetails}>
-                {topicArray.slice(8, 12).map((item) => (
+                {topicArray.slice(9, 13).map((item) => (
                   <NavHashLink
                     to={item.link}
                     className={classes.linkLook}

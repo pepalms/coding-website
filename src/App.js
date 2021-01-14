@@ -1,10 +1,10 @@
 import React from "react";
-import BasicTable from "./components/Table";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Appbar from "./components/Appbar";
 import NavDrawer from "./components/Drawer";
 import Welcome from "./components/Welcome";
-import FrontEnd from "./components/FrontEnd";
+import FrontEnd from "./components/FrontEnd/FrontEnd";
+import BackEnd from "./components/BackEnd/BackEnd";
 import theme from "./components/Theme";
 import { ThemeProvider } from "@material-ui/core/styles";
 
@@ -38,6 +38,9 @@ export default function App() {
           </Route>
           <Route path="/Front-end">
             <FrontEnd isDrawerOpen={open} />
+          </Route>
+          <Route path="/Back-end">
+            <BackEnd isDrawerOpen={open} />
           </Route>
         </Switch>
       </ThemeProvider>

@@ -2,11 +2,20 @@ import { Box, Typography } from "@material-ui/core";
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import HTML from "./HTML";
-import FrontEndBanner from "../images/frontEnd-banner.jpg";
+import FrontEndBanner from "../../images/frontEnd-banner.jpg";
 import CSS from "./CSS";
 import JavaScript from "./JavaScript";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
+  contentShift: {
+    //width: `calc(100% - 168px)`,
+    marginLeft: 168,
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
   conditionalMargin: {
     marginLeft: theme.spacing(9) + 1,
     [theme.breakpoints.down("xs")]: {
@@ -48,14 +57,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FrontEnd() {
+export default function FrontEnd(props) {
   const classes = useStyles();
   const theme = useTheme();
 
   return (
     <div className={classes.conditionalMargin}>
       <div className={classes.toolbar} />
-      <Box className={classes.header}>
+      <Box
+        className={clsx(classes.header, {
+          [classes.contentShift]: props.isDrawerOpen,
+        })}
+      >
         <Box pt="2vh" pl="5vw">
           <Typography variant="h2" fontFamily="Monospace">
             Front-end Development
