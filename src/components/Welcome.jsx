@@ -1,19 +1,17 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import clsx from "clsx";
-import { Box, Grid, Paper, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { Box, Grid, Typography } from "@material-ui/core";
 import technical from "../images/techSkills.jpg";
-import softSkills from "../images/agileWork.jpg";
 import learningBanner from "../images/Learning-banner.jpg";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import backEnd from "../images/backEnd.jpg";
 import agileWorking from "../images/agileWork.jpg";
 import testing from "../images/testing.jpg";
 import { Link } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 
 const useStyles = makeStyles((theme) => ({
   toolBar: {
@@ -127,9 +125,9 @@ export default function Welcome(props) {
 
         {/* topic cards */}
 
-        <Grid container xs={12} spacing={1}>
+        <Grid container xs={12} spacing={2}>
           <Grid item lg={3} md={4} xs={12}>
-            <Link to="/Front-end" className={classes.linkLook}>
+            <NavHashLink to="/Front-end#top" className={classes.linkLook}>
               <Card className={classes.cardStyle}>
                 <CardActionArea className={classes.cardAction}>
                   <CardMedia
@@ -152,11 +150,11 @@ export default function Welcome(props) {
                   </CardContent>
                 </CardActionArea>
               </Card>
-            </Link>
+            </NavHashLink>
           </Grid>
 
           <Grid item lg={3} md={4} xs={12} direction="column">
-            <Link to="Back-end" className={classes.linkLook}>
+            <NavHashLink to="Back-end#top" className={classes.linkLook}>
               <Card className={classes.cardStyle}>
                 <CardActionArea className={classes.cardAction}>
                   <CardMedia
@@ -180,11 +178,11 @@ export default function Welcome(props) {
                   </CardContent>
                 </CardActionArea>
               </Card>
-            </Link>
+            </NavHashLink>
           </Grid>
 
           <Grid item lg={3} md={4} xs={12}>
-            <Link to="/Testing" className={classes.linkLook}>
+            <NavHashLink to="/Testing#top" className={classes.linkLook}>
               <Card className={classes.cardStyle}>
                 <CardActionArea className={classes.cardAction}>
                   <CardMedia
@@ -208,11 +206,11 @@ export default function Welcome(props) {
                   </CardContent>
                 </CardActionArea>
               </Card>
-            </Link>
+            </NavHashLink>
           </Grid>
 
           <Grid item lg={3} md={4} xs={12}>
-            <Link to="/Working" className={classes.linkLook}>
+            <NavHashLink to="/Working#top" className={classes.linkLook}>
               <Card className={classes.cardStyle}>
                 <CardActionArea className={classes.cardAction}>
                   <CardMedia
@@ -236,7 +234,7 @@ export default function Welcome(props) {
                   </CardContent>
                 </CardActionArea>
               </Card>
-            </Link>
+            </NavHashLink>
           </Grid>
         </Grid>
       </Box>

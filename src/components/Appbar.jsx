@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
+import { Box } from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: 36,
+    marginLeft: 4,
   },
   hide: {
     display: "none",
@@ -59,8 +61,11 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     color: "inherit",
   },
-  title: {
-    flexgrow: 1,
+  iconHolder: {
+    display: "flex",
+    justifyContent: "flex-end",
+    flexGrow: 1,
+    paddingRight: "1vw",
   },
 }));
 
@@ -76,7 +81,7 @@ export default function MiniDrawer(props) {
           [classes.appBarShift]: props.isDrawerOpen,
         })}
       >
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -93,9 +98,17 @@ export default function MiniDrawer(props) {
               2020 SE Learning
             </Typography>
           </Link>
-          <IconButton>
-            <FaGithub />
-          </IconButton>
+          <Box className={classes.iconHolder}>
+            <a
+              target="_blank"
+              href="https://github.com/pepalms/coding-website"
+              rel="noopener noreferrer"
+            >
+              <IconButton>
+                <FaGithub color="white" size={32} />
+              </IconButton>
+            </a>
+          </Box>
         </Toolbar>
       </AppBar>
     </div>
